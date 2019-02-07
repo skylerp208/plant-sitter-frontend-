@@ -1,28 +1,129 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {Route, Switch, withRouter} from "react-router-dom"
+import { connect } from 'react-redux'
+import { findUser, getSitters } from './thunk/userThunk'
+
 import './App.css';
+import Nav from "./Components/Nav"
+import LoginForm from "./Components/LoginForm"
+import SignUpForm from "./Components/SignUpForm"
+import RequestForm from "./Components/RequestForm"
+import SittersContainer from "./Containers/SittersContainer"
+import HomePageB from "./Components/HomePageB"
+import SitterPage from "./Components/SitterPage"
+import RequestContainer from "./Containers/RequestContainer"
+import Inbox from "./Containers/Inbox"
+
 
 class App extends Component {
+
+
+  componentDidMount() {
+    this.props.getSitters({})
+    let token = localStorage.getItem('token')
+    if (token) {
+      this.props.findUser(token)
+    }
+  }
+
   render() {
+    let sitters = this.props.sitters
+    let user = this.props.user
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Nav />
+        <Switch>
+            <Route
+              path = '/login'
+              render = {() => {
+                return (
+                    <LoginForm
+                    />
+                )}}
+              />
+              <Route
+                path = '/signup'
+                render = {() => {
+                  return (
+                    <SignUpForm />
+                  )}}
+              />
+              <Route
+                path = "/sitters/:id"
+                render = {(routerProps) => {
+                    let sitterID = routerProps.match.params.id
+                    let sitter = sitters.find(sitter => {
+                      return sitter.id.toString() === sitterID
+                    })
+                    return (
+                      <SitterPage
+                        sitter = {sitter}
+                      />
+                  )}}
+              />
+
+              <Route
+                path = '/sitters'
+                render = {() => {
+                  return (
+                      <div className = 'browse'>
+                        <SittersContainer />
+                        <div className = 'map'> </div>
+                        <div className = 'map-cover'> </div>
+                      </div>
+                          )}}
+              />
+              <Route
+                path = '/requests'
+                render = {() => {
+                  return (
+                    <RequestContainer
+                      user = {user}
+                     />
+                  )
+                }}
+              />
+              <Route
+                path = '/inbox'
+                render = {() => {
+                  return (
+                    <Inbox
+                      user = {user}
+                    />
+                  )}}
+              />
+              <Route
+                path = '/'
+                render = {() => {
+                  return (
+                    <div className = 'homepage'>
+                      <div className = 'image'> </div>
+                      <div className = 'image-cover'> </div>
+                      <h1 className = 'home-text'> We just are so good with plants </h1>
+                      <h3 className ='home-sub'> (Seriously, just so good) </h3>
+                      <RequestForm />
+                      <HomePageB />
+                    </div>
+                  )}}
+                />
+          </Switch>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    user: state.user,
+    sitters: state.sitters
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    findUser: (token) => dispatch(findUser(token)),
+    getSitters: () => dispatch(getSitters())
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
