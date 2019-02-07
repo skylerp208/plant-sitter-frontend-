@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {Route, Switch, withRouter} from "react-router-dom"
 import { connect } from 'react-redux'
 import { findUser, getSitters } from './thunk/userThunk'
-
 import './App.css';
 import Nav from "./Components/Nav"
 import LoginForm from "./Components/LoginForm"
@@ -19,12 +18,22 @@ class App extends Component {
 
 
   componentDidMount() {
-    this.props.getSitters({})
     let token = localStorage.getItem('token')
     if (token) {
       this.props.findUser(token)
     }
+    if (this.props.user.first_name !== undefined) {
+        this.props.getRequests(this.props.user)
+    }
   }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.user !== this.props.user) {
+      this.props.getSitters(this.props.user)
+    }
+  }
+
+
 
   render() {
     let sitters = this.props.sitters
@@ -78,7 +87,7 @@ class App extends Component {
                 render = {() => {
                   return (
                     <RequestContainer
-                      user = {user}
+
                      />
                   )
                 }}
@@ -122,7 +131,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     findUser: (token) => dispatch(findUser(token)),
-    getSitters: () => dispatch(getSitters())
+    getSitters: (user) => dispatch(getSitters(user)),
   }
 }
 

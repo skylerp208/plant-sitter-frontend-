@@ -1,15 +1,20 @@
 import React from 'react'
 import Request from "../Components/Request"
+import { connect } from "react-redux"
+import { getRequests} from "../thunk/requestThunk"
 
 
 class Inbox extends React.Component {
 
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.user !== this.props.user)
+    this.props.getRequests(this.props.user)
+  }
+
+
   requestArr = () => {
-    if (this.props.user.first_name !== undefined ) {
-      let array = this.props.user.claims.filter(claim => {
-        return claim.status === 'pending'
-    })
-    let newArr = array.map(claim => {
+    let newArr = this.props.inbox.map(claim => {
       return(
         <Request
           key = {claim.id}
@@ -18,7 +23,7 @@ class Inbox extends React.Component {
       )
     })
     return newArr
-  }}
+  }
 
   render() {
     return(
@@ -30,8 +35,21 @@ class Inbox extends React.Component {
         </div>
     )
   }
+}
 
+const mapStateToProps = state => {
+  return {
+    inbox: state.inbox,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+  // denyRequest: (request) => dispatch(denyRequest(request)),
+  getRequests: (requests) => dispatch(getRequests(requests))
+  }
 }
 
 
-export default Inbox
+
+export default connect(mapStateToProps, mapDispatchToProps) (Inbox)

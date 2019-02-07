@@ -8,11 +8,14 @@ import SitterCard from "../Components/SitterCard"
 
 class SittersContainer extends React.Component {
 
-    componentDidMount() {
-        this.props.getSitters({})
-    }
 
-    sitterList = () => this.props.sitters.map(sitter => {
+    sitterArr = () => this.props.sitters.filter(sitter => {
+        return sitter.id !== this.props.user.id
+    })
+
+
+
+    sitterList = () => this.sitterArr().map(sitter => {
       return (
           <SitterCard
             key = {sitter.id}

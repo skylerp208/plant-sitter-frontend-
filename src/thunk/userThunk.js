@@ -26,16 +26,17 @@ export const createAuth = (user) => {
   }}
 
 export const getSitters = (user) => {
-    return function(dispatch) {
-      fetch("http://localhost:3000/api/v1/users")
-      .then(res => res.json())
-      .then(res => {
-        let newArr = res.filter(sitter => {
-         return sitter.isSitter
-        })
+    if (user !== undefined)
+      {return function(dispatch) {
+        fetch("http://localhost:3000/api/v1/users")
+        .then(res => res.json())
+        .then(res => {
+          let newArr = res.filter(sitter => {
+           return sitter.isSitter
+         })
         dispatch(setSitters(newArr))
       })
-    }
+    }}
   }
 
   export const findUser = (token) => {

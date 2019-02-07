@@ -1,36 +1,20 @@
 import React from "react"
+import { connect } from "react-redux"
+import { acceptRequest, denyRequest} from '../thunk/requestThunk'
 
 
 class Request extends React.Component {
 
   handleAccept = (props) => {
-    fetch(`http://localhost:3000/api/v1/requests/${props.request.id}`, {
-      method: "PATCH",
-      headers: {
-        'Content-Type' : "application/json",
-        Accepts: "application/json",
-        "Authorization": localStorage.token
-      },
-      body: JSON.stringify({
-        request: {
-          status: 'accepted'
-        }
-      })
-    })
+      this.props.acceptRequest(props.request);
   }
 
   handleDeny = (props) => {
-    fetch(`http://localhost:3000/api/v1/requests/${props.request.id}`, {
-      method: "DELETE",
-      headers: {
-        'Content-Type' : "application/json",
-        Accepts: "application/json",
-        "Authorization": localStorage.token
-      }
-    })
+      this.props.denyRequest(props.request);
   }
 
   render() {
+    // debugger
     if (this.props.request.status === 'accepted')
     {return (
       <div className = 'request'>
@@ -55,4 +39,11 @@ class Request extends React.Component {
 
   }
 
-export default Request
+  const mapDispatchToProps = dispatch => {
+    return {
+      acceptRequest: (request) => dispatch(acceptRequest(request)),
+      denyRequest: (request) => dispatch(denyRequest(request))
+    }
+  }
+
+export default connect(null, mapDispatchToProps)(Request)

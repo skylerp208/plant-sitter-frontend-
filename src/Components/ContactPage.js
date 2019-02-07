@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import DayPicker from "react-day-picker"
+import DayPickerInput from "react-day-picker/DayPickerInput";
 import 'react-day-picker/lib/style.css';
 
 class ContactPage extends React.Component {
@@ -8,7 +8,8 @@ class ContactPage extends React.Component {
 
   state = {
     message: '',
-    selectedDay : undefined
+    startDate : undefined,
+    endDate : undefined
   }
 
   changeHandler = (e) => {
@@ -17,10 +18,17 @@ class ContactPage extends React.Component {
     })
   }
 
-  handleDayClick = (e) => {
-    console.log('clicked!');
+  handleDayChangeA = (day) => {
     debugger
-  }
+   this.setState(
+     { startDate: day }
+   )
+ }
+ handleDayChangeB = (day) => {
+  this.setState(
+    { endDate: day }
+  )
+}
 
 
 
@@ -35,8 +43,8 @@ class ContactPage extends React.Component {
       body: JSON.stringify({
         request: {
           message: state.message,
-          sitter_id: props.sitter.id,
-          owner_id: props.user.id,
+          sitter_id: props.user.id,
+          owner_id: props.sitter.id,
           status: "pending"
         }
       })
@@ -50,10 +58,13 @@ class ContactPage extends React.Component {
     if (this.props.sitter !== undefined ) {
       return (
         <div className = 'contact-page'>
-          <label className = 'message-label' htmlFor = 'message'> Send a request</label>
+          <label className = 'message-label' htmlFor = 'message'> Book {this.props.sitter.first_name}</label>
           <textarea className = 'message-input' name = 'message' onChange = {this.changeHandler} value = {this.state.message}> </textarea>
           <button className = 'send-button' onClick = {() => this.handleSend(props, state)}> Send </button>
-          <DayPicker onDayClick = {this.handleDayClick}/>
+          <div className = 'dates'> Select dates </div>
+          <DayPickerInput className = 'picker-a' onDayChange = {this.handleDayChangeA}/>
+          to
+          <DayPickerInput className = 'picker-b' onDayChange = {this.handleDayChangeB}/>
         </div>
       )
     } else {
