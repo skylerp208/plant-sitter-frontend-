@@ -583,6 +583,28 @@ a:hover {
   border-bottom: 1px solid #CCC
 }
 
+.availability {
+  grid-column: 1 / 6;
+  grid-row: 9;
+  background-color: white;
+  margin-left: 5%;
+  border-bottom: 1px solid #CCC;
+  border-radius: 5px;
+  height: 300px
+}
+
+.avail-header {
+  font-size: 25px;
+  float: left;
+  margin-left: 20px;
+  margin-top: 20px
+}
+
+.calendar {
+  position: relative;
+  top: 38px;
+}
+
 .name-header {
   position: relative;
   top: 20px;

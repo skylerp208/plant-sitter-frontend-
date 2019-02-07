@@ -1,8 +1,20 @@
 import React from "react"
 import ContactPage from "./ContactPage"
+import DayPicker from "react-day-picker";
 
 
 class SitterPage extends React.Component {
+
+  birthdayStyle = `.DayPicker-Day--highlighted {
+      background-color: rgba(76, 175, 80, 0.08);
+      color: green;
+    }`;
+
+    modifiers = {
+      highlighted:  {
+        daysOfWeek: [0 , 6]
+      }
+    }
 
   render () {
     if (this.props.sitter !== undefined ) {
@@ -23,6 +35,11 @@ class SitterPage extends React.Component {
         <ContactPage
           sitter = {this.props.sitter}
           />
+        <style> {this.birthdayStyle} </style>
+        <div className = 'availability'>
+        <div className = "avail-header"> {this.props.sitter.first_name}'s Availability </div>
+        <DayPicker className = 'calendar'modifiers= {this.modifiers}/>
+        </div>
       </div>
     )} else {
       return <div> loading </div>

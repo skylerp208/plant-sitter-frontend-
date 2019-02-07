@@ -1,16 +1,20 @@
 import React from 'react'
 import Request from "../Components/Request"
+import { connect } from "react-redux"
+import { getRequests} from "../thunk/requestThunk"
 
 
 
 class RequestContainer extends React.Component {
 
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.user !== this.props.user)
+    this.props.getRequests(this.props.user)
+  }
+
   requestArr = () => {
-    if (this.props.user.first_name !== undefined ) {
-      let array = this.props.user.claims.filter(claim => {
-        return claim.status === 'accepted'
-    })
-    let newArr = array.map(claim => {
+    let newArr = this.props.requests.map(claim => {
       return(
         <Request
           key = {claim.id}
@@ -19,7 +23,7 @@ class RequestContainer extends React.Component {
       )
     })
     return newArr
-  }}
+  }
 
   render() {
     return (
@@ -31,8 +35,20 @@ class RequestContainer extends React.Component {
       </div>
     )
   }
-
-
   }
 
-export default RequestContainer
+  const mapStateToProps = state => {
+    return {
+      requests: state.requests,
+      user: state.user
+    }
+  }
+
+  const mapDispatchToProps = dispatch => {
+    return {
+      getRequests: (user) => dispatch(getRequests(user))
+    }
+  }
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(RequestContainer)
