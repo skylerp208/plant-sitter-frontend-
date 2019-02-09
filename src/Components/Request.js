@@ -1,6 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
 import { acceptRequest, denyRequest} from '../thunk/requestThunk'
+import DayPicker from "react-day-picker";
+import 'react-day-picker/lib/style.css'
 
 
 class Request extends React.Component {
@@ -14,24 +16,33 @@ class Request extends React.Component {
   }
 
   render() {
-    // debugger
+
+    const birthdayStyle = `.DayPicker-Day--highlighted {
+        background-color: rgba(76, 175, 80, 0.08);
+        color: green;
+      }`;
+      const modifiers = {
+        highlighted: {
+            from: new Date(this.props.request.start_date),
+            to: new Date(this.props.request.end_date)
+          }
+      }
+
     if (this.props.request.status === 'accepted')
     {return (
-      <div className = 'request'>
+      <div className = 'accepted-request'>
+        <div className = 'request-owner'> {this.props.request.sitter.first_name}</div>
         <div className = 'request-message'> {this.props.request.message} </div>
-        <div className = 'request-owner'> {this.props.request.owner}</div>
-        <div className = 'request-start'> {this.props.request.start_date}</div>
-        <div className = 'request-end'> {this.props.request.end_date}</div>
+        <DayPicker className = 'request-calendar' modifiers = {modifiers}/>
       </div>
     )} else {
       return (
-        <div className = 'request'>
+        <div className = 'pending-request'>
+          <div className = 'request-owner'> {this.props.request.sitter.first_name}</div>
           <div className = 'request-message'> {this.props.request.message} </div>
-          <div className = 'request-owner'> {this.props.request.owner}</div>
-          <div className = 'request-start'> {this.props.request.start_date}</div>
-          <div className = 'request-end'> {this.props.request.end_date}</div>
           <button className = 'accept-button' onClick = {() => this.handleAccept(this.props)}> Accept </button>
           <button className = 'deny-button' onClick = {() => this.handleDeny(this.props)}> Deny </button>
+            <DayPicker className = 'request-calendar' modifiers = {modifiers} />
         </div>
       )
     }

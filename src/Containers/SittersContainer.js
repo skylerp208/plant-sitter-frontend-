@@ -10,7 +10,9 @@ class SittersContainer extends React.Component {
 
 
     sitterArr = () => this.props.sitters.filter(sitter => {
+
         return sitter.id !== this.props.user.id
+
     })
 
 

@@ -36,7 +36,7 @@ export const getSitters = (user) => {
          })
         dispatch(setSitters(newArr))
       })
-    }}
+ }}
   }
 
   export const findUser = (token) => {

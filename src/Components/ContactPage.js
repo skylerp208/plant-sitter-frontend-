@@ -18,16 +18,15 @@ class ContactPage extends React.Component {
     })
   }
 
-  handleDayChangeA = (day) => {
-    debugger
-   this.setState(
-     { startDate: day }
-   )
+  handleDayChangeA = (date) => {
+   this.setState({
+     startDate: date
+   })
  }
- handleDayChangeB = (day) => {
-  this.setState(
-    { endDate: day }
-  )
+ handleDayChangeB = (date) => {
+    this.setState({
+      endDate: date
+    })
 }
 
 
@@ -45,6 +44,8 @@ class ContactPage extends React.Component {
           message: state.message,
           sitter_id: props.user.id,
           owner_id: props.sitter.id,
+          start_date: this.state.startDate,
+          end_date: this.state.endDate,
           status: "pending"
         }
       })
