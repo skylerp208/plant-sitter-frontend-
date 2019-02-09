@@ -40,6 +40,11 @@ class SitterPage extends React.Component {
         <div className = "avail-header"> {this.props.sitter.first_name}'s Availability </div>
         <DayPicker className = 'calendar'modifiers= {this.modifiers}/>
         </div>
+
+        <div className = 'about-cont'>
+          <div className = 'about-header'> About {this.props.sitter.first_name} </div>
+          <div className = 'about'> la la la la la la la la la la la </div>
+        </div>
       </div>
     )} else {
       return <div> loading </div>

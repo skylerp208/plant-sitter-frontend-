@@ -3,12 +3,11 @@ import { setInbox, setRequests, addRequest, removeRequest} from "../redux"
 
 export const getRequests = (user) => {
   return function(dispatch) {
-    fetch(`http://localhost:3000/api/v1/users/${user.id}`)
+    fetch(`http://localhost:3000/api/v1/requests`)
       .then(res => res.json())
       .then(res => {
-        let inbox = res.requests.filter(request => request.status === 'pending')
-        let requests = res.requests.filter(request => request.status === 'accepted')
-
+        let inbox = res.filter(request => request.status === 'pending' && request.owner.id === user.id)
+        let requests = res.filter(request => request.status === 'accepted' && request.owner.id === user.id)
         dispatch(setInbox(inbox))
         dispatch(setRequests(requests))
       })
