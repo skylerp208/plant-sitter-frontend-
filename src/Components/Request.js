@@ -17,10 +17,6 @@ class Request extends React.Component {
 
   render() {
 
-    const birthdayStyle = `.DayPicker-Day--highlighted {
-        background-color: rgba(76, 175, 80, 0.08);
-        color: green;
-      }`;
       const modifiers = {
         highlighted: {
             from: new Date(this.props.request.start_date),

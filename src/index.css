@@ -63,7 +63,7 @@ code {
 }
 
 .profile-link:hover {
-  color: #888888
+  color: lightgreen
 }
 
 .profile-link:focus {
@@ -99,6 +99,7 @@ code {
   padding-top: 15px;
   border-top: 1px solid #318940
 }
+
 
 
 .signup {
@@ -145,7 +146,8 @@ a {
 }
 
 a:hover {
-  color: grey
+  color: lightgreen
+
 }
 
 
@@ -351,28 +353,34 @@ a:hover {
 }
 
 .sittersContainer {
-  background-color: #FFF;
+  background-color: #F3f3f3;
   grid-column: 1 / 6;
   grid-row: 2 / 13;
   overflow: auto;
+  scroll-behavior: smooth;
   display: grid;
-  grid-template-rows: repeat(9, minmax(175px, 300px));
+  grid-template-rows: repeat(8, minmax(175px, 300px));
 }
 
 .sittersContainer::-webkit-scrollbar {
   display: none
 }
 
+
+
 .sitter-card {
   background-color: #FFF;
   font-family: "Open Sans" sans-serif;
   height: 100%;
   position: relative;
-  border-bottom: 1px solid #CCC;
+  border-bottom: 2px solid #CCC;
+  transition: .3s
+
 }
 
 .sitter-card:hover {
-  border-left: 3px solid #318940;
+  border-bottom: 5px solid #318940;
+  transform: scale(1.03);;
   cursor: pointer
 }
 .user.icon {
@@ -397,6 +405,7 @@ a:hover {
   color: #888888;
   text-align: left;
   font-size: 15px;
+  width: 390px;
   position: relative;
   margin-left: 18%;
   margin-top: 3.5%
@@ -566,7 +575,7 @@ a:hover {
   grid-row: 1 / 21;
   display:grid;
   grid-template-columns: repeat( 12 , 1fr );
-  grid-template-rows: repeat(8, 60px);
+  grid-template-rows: repeat(13, 60px);
   background-color: #f3f3f3;
   border-radius: 5px;
   grid-gap: 10px;
@@ -602,7 +611,7 @@ a:hover {
 
 .availability {
   grid-column: 1 / 6;
-  grid-row: 9;
+  grid-row: 9 / 13;
   background-color: white;
   margin-left: 5%;
   border-bottom: 1px solid #CCC;
@@ -758,7 +767,14 @@ a:hover {
   height: 65%;
   text-align: left;
   padding-left: 10px;
-  padding-top: 5px
+  padding-top: 5px;
+  transition: .4s
+}
+
+.accepted-request:hover {
+  transform: translateY(-3px);
+  border-bottom: 2px solid #CCCCCC;
+
 }
 
 .request-owner {
@@ -835,3 +851,40 @@ a:hover {
     background-color: rgba(76, 175, 80, 0.2);
     color: green;
   }
+
+
+.plant-photos {
+  background-color: #F3f3f3;
+  grid-column: 6/ 12;
+  grid-row:  7/ 13;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap
+}
+
+.plant-photos::-webkit-scrollbar {
+  display:none
+}
+
+.photo-container {
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  width: 290px;
+  height: 290px;
+  overflow: hidden;
+  background-size: cover;
+  transition: .5s
+}
+
+.photo-container:hover {
+  box-shadow: 3px 3px 15px #DDD;
+  transform: scale(1.03);
+}
+
+.upload-form {
+  width: 100%;
+  margin-bottom: 10px
+}
