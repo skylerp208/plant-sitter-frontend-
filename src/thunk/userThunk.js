@@ -31,12 +31,13 @@ export const getSitters = (user) => {
         fetch("http://localhost:3000/api/v1/users")
         .then(res => res.json())
         .then(res => {
+    
           let newArr = res.filter(sitter => {
            return sitter.isSitter
          })
         dispatch(setSitters(newArr))
       })
- }}
+      }}
   }
 
   export const findUser = (token) => {

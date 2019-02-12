@@ -1,14 +1,11 @@
 import React from "react"
 import ContactPage from "./ContactPage"
 import DayPicker from "react-day-picker";
+import PlantPhotos from "./PlantPhotos"
 
 
 class SitterPage extends React.Component {
 
-  birthdayStyle = `.DayPicker-Day--highlighted {
-      background-color: rgba(76, 175, 80, 0.08);
-      color: green;
-    }`;
 
     modifiers = {
       highlighted:  {
@@ -45,7 +42,11 @@ class SitterPage extends React.Component {
           <div className = 'about-header'> About {this.props.sitter.first_name} </div>
           <div className = 'about'> la la la la la la la la la la la </div>
         </div>
+        <PlantPhotos
+            user = {this.props.sitter}
+         />
       </div>
+
     )} else {
       return <div> loading </div>
     }

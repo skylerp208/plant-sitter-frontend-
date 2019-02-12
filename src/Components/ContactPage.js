@@ -50,7 +50,10 @@ class ContactPage extends React.Component {
         }
       })
     })
-    .then()
+    .then(alert("Your request has been sent!"))
+    .then(  this.setState({
+        message : ''
+      }))
   }
 
   render () {
