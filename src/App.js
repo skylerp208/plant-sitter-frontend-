@@ -12,6 +12,7 @@ import HomePageB from "./Components/HomePageB"
 import SitterPage from "./Components/SitterPage"
 import RequestContainer from "./Containers/RequestContainer"
 import Inbox from "./Containers/Inbox"
+import Map from "./Components/Map"
 
 
 class App extends Component {
@@ -24,6 +25,8 @@ class App extends Component {
     }
     if (this.props.user.first_name !== undefined) {
         this.props.getRequests(this.props.user)
+    } else {
+      this.props.getSitters()
     }
   }
 
@@ -77,8 +80,7 @@ class App extends Component {
                   return (
                       <div className = 'browse'>
                         <SittersContainer />
-                        <div className = 'map'> </div>
-                        <div className = 'map-cover'> </div>
+                        <div className = 'map'> <Map /></div>
                       </div>
                           )}}
               />
