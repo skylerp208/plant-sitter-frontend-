@@ -10,14 +10,19 @@ class SittersContainer extends React.Component {
 
 
     sitterArr = () => this.props.sitters.filter(sitter => {
-
         return sitter.id !== this.props.user.id
-
     })
 
+    sitterList = () => this.props.sitters.map(sitter => {
+      return (
+        <SitterCard
+          key = {sitter.id}
+          sitter = {sitter}
+        />
+      )
+    })
 
-
-    sitterList = () => this.sitterArr().map(sitter => {
+    filteredSitterList = () => this.sitterArr().map(sitter => {
       return (
           <SitterCard
             key = {sitter.id}
@@ -27,12 +32,18 @@ class SittersContainer extends React.Component {
       })
 
     render() {
-      return  (
-          <div className='sittersContainer'>
-              {this.sitterList()}
-          </div>
-        )
+      if (this.props.user.id !== undefined)
+        {
+          return (
+            <div className='sittersContainer'>
+                {this.filteredSitterList()}
+            </div>
+          )
+        } else {
+          return <div className='sittersContainer'> {this.sitterList()} </div>
+        }
     }
+
   }
 
 
