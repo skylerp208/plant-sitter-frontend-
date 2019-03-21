@@ -424,15 +424,10 @@ a:hover {
   grid-row: 2  / 13;
 }
 
-.map-cover {
-  margin-left:0;
-  grid-column: 6 / 13;
-  grid-row: 2 / 13;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  z-index: 20;
-  text-align: center;
+#map {
+  height: 100%
 }
+
 
 
 .homePageB {

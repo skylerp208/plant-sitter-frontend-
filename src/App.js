@@ -12,7 +12,7 @@ import HomePageB from "./Components/HomePageB"
 import SitterPage from "./Components/SitterPage"
 import RequestContainer from "./Containers/RequestContainer"
 import Inbox from "./Containers/Inbox"
-import Map from "./Components/Map"
+import MapContainer from "./Components/MapContainer"
 
 
 class App extends Component {
@@ -80,7 +80,7 @@ class App extends Component {
                   return (
                       <div className = 'browse'>
                         <SittersContainer />
-                        <div className = 'map'> <Map /></div>
+                        <div className = 'map'> <MapContainer /></div>
                       </div>
                           )}}
               />
