@@ -8,16 +8,34 @@ class MapContainer extends React.Component {
   }
 
   initMap = () => {
-    let map = new window.google.maps.Map(document.getElementById('map'), {
-      center: {lat: 40.8116, lng: -73.9465},
-      zoom: 11
-    })
-    this.props.sitters.forEach((sitter) => {
-      let marker =  new window.google.maps.Marker({
-            position: JSON.parse(sitter.coordinates) ,
-            map: map
-          })
-    })
+    if (this.props.user.id !== undefined) {
+        let map = new window.google.maps.Map(document.getElementById('map'), {
+          center: JSON.parse(this.props.user.coordinates),
+          zoom: 11
+        })
+        this.props.sitters.forEach((sitter) => {
+          if (sitter.id !== this.props.user.id) {
+            let content = `<div> ${sitter.first_name}</div>`
+            let info = new window.google.maps.InfoWindow({
+              content: content
+            })
+            let marker =  new window.google.maps.Marker({
+                position: JSON.parse(sitter.coordinates) ,
+                map: map
+              })
+            info.open(map, marker)
+          }})
+        } else {
+        let map = new window.google.maps.Map(document.getElementById('map'), {
+          center: {lat: 40.7128, lng: -74.0060},
+          zoom: 11
+        })
+        this.props.sitters.forEach((sitter) => {
+          let marker =  new window.google.maps.Marker({
+                position: JSON.parse(sitter.coordinates) ,
+                map: map
+              })})
+            }
   }
 
   // JSON.parse(sitter.coordinates)
