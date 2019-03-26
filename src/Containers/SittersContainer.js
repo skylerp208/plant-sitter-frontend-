@@ -32,7 +32,8 @@ class SittersContainer extends React.Component {
       })
 
     render() {
-      if (this.props.user.id !== undefined)
+
+      if (this.props.user !== undefined)
         {
           return (
             <div className='sittersContainer'>

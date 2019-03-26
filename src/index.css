@@ -206,6 +206,18 @@ a:hover {
   /* margin-top: 15px */
 }
 
+#address {
+  grid-column: 1/ 5;
+  grid-row: 6 / 7;
+  font-family: "Open Sans" sans-serif;
+  font-size: 23px;
+  width: 500px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #CCCCCC;
+  padding-left: 10px
+}
+
 #login-submit {
   font-size: 18px;
   font-family: "Open Sans" sans-serif;
