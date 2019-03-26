@@ -33,7 +33,7 @@ class Nav extends React.Component {
   }
 
   render() {
-    if (this.props.user.first_name) {
+    if (this.props.user.first_name !== undefined) {
       return (
         <div className = "nav">
           <a className = 'logo' href= '/'>PLANT SITTER </a>

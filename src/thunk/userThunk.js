@@ -21,7 +21,6 @@ export const createAuth = (user) => {
         if (resp.hasOwnProperty('error')) {
           alert(resp.error)
         } else {
-
           localStorage.setItem("token", resp.jwt);
           dispatch(login(resp.user))
           window.location = "http://localhost:3001"
