@@ -112,7 +112,6 @@ class App extends Component {
                       <div className = 'image-cover'> </div>
                       <h1 className = 'home-text'> We just are so good with plants </h1>
                       <h3 className ='home-sub'> (Seriously, just so good) </h3>
-                      <RequestForm />
                       <HomePageB />
                     </div>
                   )}}
