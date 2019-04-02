@@ -31,10 +31,16 @@ class MapContainer extends React.Component {
           zoom: 11
         })
         this.props.sitters.forEach((sitter) => {
+          let content = `<div> ${sitter.first_name} </div>`
+          let info = new window.google.maps.InfoWindow({
+            content: content
+          })
           let marker =  new window.google.maps.Marker({
                 position: JSON.parse(sitter.coordinates) ,
                 map: map
-              })})
+              })
+          info.open(map , marker)
+          })
             }
   }
 

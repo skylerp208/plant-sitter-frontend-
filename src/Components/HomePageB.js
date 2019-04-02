@@ -5,8 +5,7 @@ const HomePageB = () => {
 
   return (
     <div className = "homePageB">
-        <div className = "b-header"> The best care for all of your plants </div>
-
+      
         <div className = 'service-item a'>
           <i className = 'leaf-icon'>&#x2619;</i>
           <label className="service-title">House Calls</label>
