@@ -156,12 +156,24 @@ a:hover {
   background-color: #FFF;
   width: 600px;
   grid-column: 4/9;
-  grid-row: 2 / 15;
+  grid-row: 2 / 10;
   border-radius: 5px;
   border-bottom: 3px solid #CCCCCC;
   display: grid;
   grid-template-columns: repeat(5 , 1fr);
-  grid-template-rows: repeat(6, 1fr)
+  grid-template-rows: repeat(4, 1fr)
+}
+
+.signup-form-container {
+  background-color: #FFF;
+  width: 600px;
+  grid-column: 4/9;
+  grid-row: 2 / 12;
+  border-radius: 5px;
+  border-bottom: 3px solid #CCCCCC;
+  display: grid;
+  grid-template-columns: repeat(5 , 1fr);
+  grid-template-rows: repeat(4, 1fr)
 }
 
 
@@ -175,11 +187,16 @@ a:hover {
 }
 
 .login-form {
-  grid-column: 1 / 5;
+  grid-column: 1 / 6;
   grid-row: 2/ 4;
   margin-left: 50px;
-  margin-top: -20px
-
+  margin-top: -10px;
+}
+.signup-form {
+  grid-column: 1 / 6;
+  grid-row: 2/ 4;
+  margin-left: 50px;
+  margin-top: -90px;
 }
 #username {
   grid-column: 1/ 5;
@@ -194,9 +211,69 @@ a:hover {
   /* margin-top: 50px */
 }
 
+#first_name {
+  font-family: "Open Sans" sans-serif;
+  font-size: 23px;
+  width: 240px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #CCCCCC;
+  padding-left: 10px;
+  float: left;
+  margin-right: 20px;
+  margin-left: 25px
+}
+
+#last_name {
+  font-family: "Open Sans" sans-serif;
+  font-size: 23px;
+  width: 240px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #CCCCCC;
+  padding-left: 10px;
+  float: left
+}
+
+#city {
+  font-family: "Open Sans" sans-serif;
+  font-size: 23px;
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #CCCCCC;
+  padding-left: 10px;
+  float: left;
+  /* margin-right: 20px;
+  margin-left: 25px */
+}
+
+#zip_code {
+  font-family: "Open Sans" sans-serif;
+  font-size: 23px;
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #CCCCCC;
+  padding-left: 10px;
+  float: left;
+  margin-right: 20px;
+  margin-left: 25px
+}
+
+#state {
+  grid-column: 1/ 5;
+  font-family: "Open Sans" sans-serif;
+  font-size: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  margin-right: 100px;
+  margin-left: 10px
+}
+
 #password {
   grid-column: 1/ 5;
-  /* grid-row: 5 / 6; */
   font-family: "Open Sans" sans-serif;
   font-size: 23px;
   width: 500px;
@@ -204,8 +281,9 @@ a:hover {
   border-radius: 5px;
   border: 1px solid #CCCCCC;
   padding-left: 10px
-  /* margin-top: 15px */
 }
+
+
 
 #address {
   grid-column: 1/ 5;
@@ -239,7 +317,48 @@ a:hover {
   float: left;
   font-family: "Open Sans" sans-serif;
   font-weight: lighter;
-  margin-top: 15px
+  margin-top: 15px;
+  margin-left: 25px
+}
+
+.city_label {
+  font-family: "Open Sans" sans-serif;
+  font-weight: lighter;
+  margin-top: 15px;
+  float: left;
+  margin-left: 25px;
+  margin-right: 158px
+}
+.zip_code_label {
+  font-family: "Open Sans" sans-serif;
+  font-weight: lighter;
+  margin-top: 15px;
+  float: left;
+  margin-left: 25px;
+  margin-right: 80px
+}
+
+.state_label {
+  font-family: "Open Sans" sans-serif;
+  font-weight: lighter;
+  margin-top: 15px;
+  float: left;
+  margin-right: 50px
+}
+
+.first_name_label {
+  font-family: "Open Sans" sans-serif;
+  font-weight: lighter;
+  margin-top: 15px;
+  margin-right: 190px;
+  float: left;
+  margin-left: 25px
+}
+.last_name_label {
+  font-family: "Open Sans" sans-serif;
+  font-weight: lighter;
+  margin-top: 15px;
+  float: left
 }
 
 .terms {

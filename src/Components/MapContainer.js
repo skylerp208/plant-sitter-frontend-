@@ -7,6 +7,12 @@ class MapContainer extends React.Component {
     coordinates: []
   }
 
+
+  sitterArr = () => this.props.sitters.filter(sitter => {
+      return sitter.id !== this.props.user.id
+  })
+
+
   initMap = () => {
     if (this.props.user.id !== undefined) {
         let map = new window.google.maps.Map(document.getElementById('map'), {
@@ -44,7 +50,8 @@ class MapContainer extends React.Component {
             }
   }
 
-  // JSON.parse(sitter.coordinates)
+  initMap = this.initMap.bind(this)
+
 
   renderMap = () => {
     loadScript(`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_KEY}&callback=initMap`)
@@ -67,16 +74,12 @@ class MapContainer extends React.Component {
   //   })
   // }
 
-  componentDidMount() {
+  componentDidUpdate() {
     this.renderMap()
   }
 
-  sitterArr = () => this.props.sitters.filter(sitter => {
-      return sitter.id !== this.props.user.id
-  })
 
   render() {
-    // debugger
     return (
       <div id="map"> </div>
     )

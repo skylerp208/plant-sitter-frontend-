@@ -29,6 +29,32 @@ export const createAuth = (user) => {
       })
   }}
 
+export const createUser = (user) => {
+    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${user.address.split(' ').join('+') + ',' + user.city.split(' ').join('+') + ',+' + user.state}&key=${process.env.REACT_APP_GOOGLE_MAPS_KEY}`)
+    .then(res => res.json())
+    .then(res => {
+      debugger
+    })
+    fetch("http://localhost:3000/api/v1/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accepts: "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          username: user.username,
+          password: user.password,
+          address: user.address
+        }
+      })
+    })
+    .then(res => res.json())
+    .then(res => {
+      debugger
+    })
+}
+
 
 
 export const getSitters = (user) => {
