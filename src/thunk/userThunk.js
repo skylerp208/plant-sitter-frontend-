@@ -29,7 +29,6 @@ export const createAuth = (user) => {
       })
   }}
 
-<<<<<<< HEAD
 export const createUser = (user) => {
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${user.address.split(' ').join('+') + ',' + user.city.split(' ').join('+') + ',+' + user.state}&key=${process.env.REACT_APP_GOOGLE_MAPS_KEY}`)
     .then(res => res.json())
@@ -56,8 +55,6 @@ export const createUser = (user) => {
     })
 }
 
-=======
->>>>>>> 9fe1cb073d9a42ce74dfbec0fdca00369eb7f671
 
 
 export const getSitters = (user) => {

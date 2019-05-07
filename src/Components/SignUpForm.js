@@ -1,25 +1,21 @@
 import React from 'react'
-<<<<<<< HEAD
+
 import {connect} from 'react-redux'
 import {createUser} from '../thunk/userThunk'
-=======
->>>>>>> 9fe1cb073d9a42ce74dfbec0fdca00369eb7f671
+
 
 class SignUpForm extends React.Component {
 
   state = {
     username: '',
-<<<<<<< HEAD
     first_name: '',
     last_name: '',
     password: '',
     address: '',
     zip_code: '',
-    state: ''
-=======
+    state: '',
     password: '',
     address: ''
->>>>>>> 9fe1cb073d9a42ce74dfbec0fdca00369eb7f671
   }
 
   changeHandler = (e) => {
@@ -28,7 +24,6 @@ class SignUpForm extends React.Component {
       })
   }
 
-<<<<<<< HEAD
   submitHandler = (e) => {
     e.preventDefault()
     const userObj = this.state
@@ -36,7 +31,7 @@ class SignUpForm extends React.Component {
   }
 
 render () {
-  return(
+  return (
     <div className = 'signup-form-container'>
       <div className ='sign-in-text'> Sign Up for Plant Sitter </div>
       <form className = 'signup-form' onSubmit = {this.submitHandler}>
@@ -108,33 +103,11 @@ render () {
         </select>
         <label htmlFor ='password' className='label'> Password </label>
         <input type='password' id='password' name='password' onChange = {this.changeHandler}/>
-=======
-render () {
-  return(
-    <div className = 'login-form-container'>
-      <div className ='sign-in-text'> Sign Up for Plant Sitter </div>
-      <form className = 'login-form' onSubmit = {this.submitHandler}>
-        <label htmlFor = 'username' className='label'> Username </label>
-        <input type= 'text' id= 'username' name='username'  onChange = {this.changeHandler}/>
-        <label htmlFor ='password' className='label'> Password </label>
-        <input type='password' id='password' name='password' onChange = {this.changeHandler}/>
-        <label htmlFor='address' className='label'> Address </label>
-        <input type= 'text' id = 'address' name='address' onChange = {this.changeHandler} />
->>>>>>> 9fe1cb073d9a42ce74dfbec0fdca00369eb7f671
-        <input type='submit' id="login-submit" value = 'Sign Up' />
+      <div className = 'terms'> By signing in or signing up, I agree to Plantsitter.com's Terms of Service and Privacy Policy, confirm that I am 18 years of age or older, and consent to receiving email communication. </div>
       </form>
-      <div className = 'terms'> By signing in or signing up, I agree to Plantsitter.com's Terms of Service and Privacy Policy, confirm that I am 18 years of age or older, and consent to receiving email communication.</div>
     </div>
-  )
+    )
+  }
 }
 
-
-
-
-}
-
-<<<<<<< HEAD
 export default connect(null, {createUser})(SignUpForm)
-=======
-export default SignUpForm
->>>>>>> 9fe1cb073d9a42ce74dfbec0fdca00369eb7f671

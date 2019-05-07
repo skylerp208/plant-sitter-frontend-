@@ -156,16 +156,14 @@ a:hover {
   background-color: #FFF;
   width: 600px;
   grid-column: 4/9;
-<<<<<<< HEAD
-  grid-row: 2 / 10;
-=======
+
   grid-row: 2 / 15;
->>>>>>> 9fe1cb073d9a42ce74dfbec0fdca00369eb7f671
+
   border-radius: 5px;
   border-bottom: 3px solid #CCCCCC;
   display: grid;
   grid-template-columns: repeat(5 , 1fr);
-<<<<<<< HEAD
+
   grid-template-rows: repeat(4, 1fr)
 }
 
@@ -179,9 +177,7 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(5 , 1fr);
   grid-template-rows: repeat(4, 1fr)
-=======
-  grid-template-rows: repeat(6, 1fr)
->>>>>>> 9fe1cb073d9a42ce74dfbec0fdca00369eb7f671
+
 }
 
 
@@ -195,7 +191,7 @@ a:hover {
 }
 
 .login-form {
-<<<<<<< HEAD
+
   grid-column: 1 / 6;
   grid-row: 2/ 4;
   margin-left: 50px;
@@ -206,13 +202,12 @@ a:hover {
   grid-row: 2/ 4;
   margin-left: 50px;
   margin-top: -90px;
-=======
+
   grid-column: 1 / 5;
   grid-row: 2/ 4;
   margin-left: 50px;
   margin-top: -20px
 
->>>>>>> 9fe1cb073d9a42ce74dfbec0fdca00369eb7f671
 }
 #username {
   grid-column: 1/ 5;
@@ -227,7 +222,7 @@ a:hover {
   /* margin-top: 50px */
 }
 
-<<<<<<< HEAD
+
 #first_name {
   font-family: "Open Sans" sans-serif;
   font-size: 23px;
@@ -291,11 +286,6 @@ a:hover {
 
 #password {
   grid-column: 1/ 5;
-=======
-#password {
-  grid-column: 1/ 5;
-  /* grid-row: 5 / 6; */
->>>>>>> 9fe1cb073d9a42ce74dfbec0fdca00369eb7f671
   font-family: "Open Sans" sans-serif;
   font-size: 23px;
   width: 500px;
@@ -303,16 +293,11 @@ a:hover {
   border-radius: 5px;
   border: 1px solid #CCCCCC;
   padding-left: 10px
-<<<<<<< HEAD
 }
 
 
 
-=======
-  /* margin-top: 15px */
-}
 
->>>>>>> 9fe1cb073d9a42ce74dfbec0fdca00369eb7f671
 #address {
   grid-column: 1/ 5;
   grid-row: 6 / 7;
@@ -345,7 +330,6 @@ a:hover {
   float: left;
   font-family: "Open Sans" sans-serif;
   font-weight: lighter;
-<<<<<<< HEAD
   margin-top: 15px;
   margin-left: 25px
 }
@@ -387,10 +371,9 @@ a:hover {
   font-family: "Open Sans" sans-serif;
   font-weight: lighter;
   margin-top: 15px;
-  float: left
-=======
+  float: left;
   margin-top: 15px
->>>>>>> 9fe1cb073d9a42ce74dfbec0fdca00369eb7f671
+
 }
 
 .terms {
