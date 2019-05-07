@@ -6,7 +6,10 @@ export const logOut = () => {
   return {type: "LOGOUT"}
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9fe1cb073d9a42ce74dfbec0fdca00369eb7f671
 export const setUser = (user) => {
   return {type: "SET_USER", payload: user }
 }

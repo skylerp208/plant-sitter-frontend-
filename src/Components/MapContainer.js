@@ -7,12 +7,6 @@ class MapContainer extends React.Component {
     coordinates: []
   }
 
-
-  sitterArr = () => this.props.sitters.filter(sitter => {
-      return sitter.id !== this.props.user.id
-  })
-
-
   initMap = () => {
     if (this.props.user.id !== undefined) {
         let map = new window.google.maps.Map(document.getElementById('map'), {
